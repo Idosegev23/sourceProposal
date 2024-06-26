@@ -81,7 +81,7 @@ const Card = styled(motion.div)(({ theme }) => ({
   alignItems: 'center',
   width: '100%',
   maxWidth: '800px',
-  margin: '0 auto 3rem',
+  margin: '0 auto 1rem',
   [theme.breakpoints.down('sm')]: {
     padding: '1.5rem',
   },
