@@ -45,7 +45,7 @@ const StyledContainer = styled(Container)(({ theme }) => ({
   },
 }));
 
-onst Content = styled('div')(({ theme }) => ({
+const Content = styled('div')(({ theme }) => ({
   position: 'relative',
   zIndex: 2,
   width: '100%',
