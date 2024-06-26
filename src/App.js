@@ -45,7 +45,7 @@ const StyledContainer = styled(Container)(({ theme }) => ({
   },
 }));
 
-const Content = styled('div')(({ theme }) => ({
+onst Content = styled('div')(({ theme }) => ({
   position: 'relative',
   zIndex: 2,
   width: '100%',
@@ -58,6 +58,7 @@ const Content = styled('div')(({ theme }) => ({
   alignItems: 'center',
   [theme.breakpoints.down('sm')]: {
     padding: '1rem',
+    width: '100%',
   },
 }));
 
@@ -87,7 +88,9 @@ const Card = styled(motion.div)(({ theme }) => ({
   margin: '0 auto 3rem',
   [theme.breakpoints.down('sm')]: {
     padding: '1.5rem',
-    width: 'calc(100% - 2rem)', // Subtract padding from width
+    width: 'calc(100% - 2rem)',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
 }));
 
