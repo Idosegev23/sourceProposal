@@ -21,6 +21,7 @@ const theme = createTheme({
         root: {
           '& .MuiInputBase-input': {
             textAlign: 'right',
+            direction: 'rtl',
           },
         },
       },
@@ -36,6 +37,9 @@ const StyledContainer = styled(Container)(({ theme }) => ({
   overflow: 'hidden',
   backgroundColor: 'white',
   color: '#333',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
   [theme.breakpoints.down('sm')]: {
     padding: theme.spacing(2),
   },
@@ -71,6 +75,10 @@ const Card = styled(motion.div)(({ theme }) => ({
   border: '1px solid rgba(0, 0, 0, 0.1)',
   padding: '3rem',
   marginBottom: '3rem',
+  textAlign: 'right',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
   [theme.breakpoints.down('sm')]: {
     padding: '1.5rem',
   },
@@ -267,10 +275,10 @@ const App = () => {
                 horizontal: 'center',
               }}
             >
-              <MenuItem onClick={() => scrollTo(aboutRef)}>אודות</MenuItem>
-              <MenuItem onClick={() => scrollTo(servicesRef)}>שירותים</MenuItem>
-              <MenuItem onClick={() => scrollTo(pricingRef)}>תמחור</MenuItem>
-              <MenuItem onClick={() => scrollTo(contactRef)}>אישור הצעת מחיר</MenuItem>
+              <MenuItem onClick={() => scrollTo(aboutRef)} style={{ textAlign: 'center', width: '100%' }}>אודות</MenuItem>
+              <MenuItem onClick={() => scrollTo(servicesRef)} style={{ textAlign: 'center', width: '100%' }}>שירותים</MenuItem>
+              <MenuItem onClick={() => scrollTo(pricingRef)} style={{ textAlign: 'center', width: '100%' }}>תמחור</MenuItem>
+              <MenuItem onClick={() => scrollTo(contactRef)} style={{ textAlign: 'center', width: '100%' }}>אישור הצעת מחיר</MenuItem>
             </Menu>
 
             <Card ref={aboutRef}>
@@ -350,7 +358,7 @@ const App = () => {
                       onChange={(e) => setName(e.target.value)}
                       required
                       InputProps={{
-                        style: { direction: 'rtl' }
+                        style: { direction: 'rtl', textAlign: 'right' }
                       }}
                     />
                   </Grid>
@@ -362,7 +370,7 @@ const App = () => {
                       onChange={(e) => setPosition(e.target.value)}
                       required
                       InputProps={{
-                        style: { direction: 'rtl' }
+                        style: { direction: 'rtl', textAlign: 'right' }
                       }}
                     />
                   </Grid>
@@ -375,7 +383,7 @@ const App = () => {
                       onChange={(e) => setEmail(e.target.value)}
                       required
                       InputProps={{
-                        style: { direction: 'rtl' }
+                        style: { direction: 'rtl', textAlign: 'right' }
                       }}
                     />
                   </Grid>
