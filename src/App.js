@@ -290,7 +290,6 @@ const App = () => {
               <StyledMenuItem onClick={() => scrollTo(contactRef)}>אישור הצעת מחיר</StyledMenuItem>
             </Menu>
 
-            // ... (קוד קודם נשאר ללא שינוי)
 
 <Card ref={servicesRef}>
   <animated.div style={titleAnimation}>
@@ -323,7 +322,6 @@ const App = () => {
   </Box>
 </Card>
 
-// ... (קוד הבא נשאר ללא שינוי)
 
             <Card ref={pricingRef}>
               <animated.div style={titleAnimation}>
