@@ -53,6 +53,9 @@ const Content = styled('div')(({ theme }) => ({
   margin: '2rem auto',
   padding: '2rem',
   textAlign: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
   [theme.breakpoints.down('sm')]: {
     padding: '1rem',
   },
@@ -79,11 +82,12 @@ const Card = styled(motion.div)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  width: '80%',
-  maxWidth: '600px',
-  margin: '3 auto 3rem',
+  width: '100%',
+  maxWidth: '800px',
+  margin: '0 auto 3rem',
   [theme.breakpoints.down('sm')]: {
     padding: '1.5rem',
+    width: 'calc(100% - 2rem)', // Subtract padding from width
   },
 }));
 
@@ -290,107 +294,105 @@ const App = () => {
               <StyledMenuItem onClick={() => scrollTo(contactRef)}>אישור הצעת מחיר</StyledMenuItem>
             </Menu>
 
-
-<Card ref={servicesRef}>
-  <animated.div style={titleAnimation}>
-    <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: '#62238C', fontFamily: 'Heebo, Arial, sans-serif' }}>
-      הצעת מחיר לסדנת AI מתקדמת
-    </Typography>
-  </animated.div>
-  <Typography variant="body1" paragraph style={{ fontFamily: 'Heebo, Arial, sans-serif' }}>
-    <strong>שלום איתי,</strong>
-  </Typography>
-  <Typography variant="body1" paragraph style={{ fontFamily: 'Heebo, Arial, sans-serif' }}>
-    אנו שמחים להציג בפניך הצעת מחיר לסדנת AI חדשנית ומתקדמת עבור מחלקת הפיתוח בחברת Source Tactical Gear. <strong>סדנה זו תפתח בפניכם עולם של אפשרויות טכנולוגיות חדשות ותעצים את יכולות הצוות שלכם.</strong>
-  </Typography>
-  <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right', fontFamily: 'Heebo, Arial, sans-serif' }}>
-    <li><strong>מספר משתתפים:</strong> 10-15 איש</li>
-    <li><strong>משך הסדנה:</strong> סדנה מעשית אינטנסיבית בת 5 שעות</li>
-    <li><strong>דרישות:</strong> מחשבים ניידים עם חיבור לאינטרנט</li>
-  </Box>
-  <Typography variant={isMobile ? "h6" : "h5"} gutterBottom style={{ color: '#62238C', marginTop: '2rem', fontFamily: 'Heebo, Arial, sans-serif' }}>
-    נושאי הסדנה
-  </Typography>
-  <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right', fontFamily: 'Heebo, Arial, sans-serif' }}>
-    <li>סקירה מקיפה של טכנולוגיות AI מתקדמות וישומיהן בתעשיית הציוד הטקטי</li>
-    <li>עבודה מעשית עם ChatGPT - מעבר לשימושים בסיסיים</li>
-    <li>טכניקות מתקדמות לאימון והתאמה של מודלי AI לצרכים ספציפיים של Source Tactical Gear</li>
-    <li>יצירת GPT מותאם אישית לתהליכי העבודה הייחודיים שלכם</li>
-    <li>בניית תהליכי אוטומציה חכמים מבוססי AI לייעול תהליכי הייצור והלוגיסטיקה</li>
-    <li>אינטגרציה של טכנולוגיות AI בתהליכי העבודה הקיימים של החברה</li>
-    <li>סקירת מגמות עתידיות ב-AI וכיצד הן עשויות להשפיע על תעשיית הציוד הטקטי</li>
-  </Box>
-</Card>
-
+            <Card ref={servicesRef}>
+              <animated.div style={titleAnimation}>
+                <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: '#62238C', fontFamily: 'Heebo, Arial, sans-serif' }}>
+                  הצעת מחיר לסדנת AI מתקדמת
+                </Typography>
+              </animated.div>
+              <Typography variant="body1" paragraph style={{ fontFamily: 'Heebo, Arial, sans-serif' }}>
+                <strong>שלום איתי,</strong>
+              </Typography>
+              <Typography variant="body1" paragraph style={{ fontFamily: 'Heebo, Arial, sans-serif' }}>
+                אנו שמחים להציג בפניך הצעת מחיר לסדנת AI חדשנית ומתקדמת עבור מחלקת הפיתוח בחברת Source Tactical Gear. <strong>סדנה זו תפתח בפניכם עולם של אפשרויות טכנולוגיות חדשות ותעצים את יכולות הצוות שלכם.</strong>
+              </Typography>
+              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right', fontFamily: 'Heebo, Arial, sans-serif' }}>
+                <li><strong>מספר משתתפים:</strong> 10-15 איש</li>
+                <li><strong>משך הסדנה:</strong> סדנה מעשית אינטנסיבית בת 5 שעות</li>
+                <li><strong>דרישות:</strong> מחשבים ניידים עם חיבור לאינטרנט</li>
+              </Box>
+              <Typography variant={isMobile ? "h6" : "h5"} gutterBottom style={{ color: '#62238C', marginTop: '2rem', fontFamily: 'Heebo, Arial, sans-serif' }}>
+                נושאי הסדנה
+              </Typography>
+              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right', fontFamily: 'Heebo, Arial, sans-serif' }}>
+                <li>סקירה מקיפה של טכנולוגיות AI מתקדמות וישומיהן בתעשיית הציוד הטקטי</li>
+                <li>עבודה מעשית עם ChatGPT - מעבר לשימושים בסיסיים</li>
+                <li>טכניקות מתקדמות לאימון והתאמה של מודלי AI לצרכים ספציפיים של Source Tactical Gear</li>
+                <li>יצירת GPT מותאם אישית לתהליכי העבודה הייחודיים שלכם</li>
+                <li>בניית תהליכי אוטומציה חכמים מבוססי AI לייעול תהליכי הייצור והלוגיסטיקה</li>
+<li>אינטגרציה של טכנולוגיות AI בתהליכי העבודה הקיימים של החברה</li>
+                <li>סקירת מגמות עתידיות ב-AI וכיצד הן עשויות להשפיע על תעשיית הציוד הטקטי</li>
+              </Box>
+            </Card>
 
             <Card ref={pricingRef}>
               <animated.div style={titleAnimation}>
-                <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: '#62238C' }}>
+                <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: '#62238C', fontFamily: 'Heebo, Arial, sans-serif' }}>
                   תמחור
                 </Typography>
               </animated.div>
-              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right' }}>
+              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right', fontFamily: 'Heebo, Arial, sans-serif' }}>
                 <li><strong>מחיר הסדנה:</strong> 4,000 ₪ (לא כולל מע"מ)</li>
                 <li><strong>עלות נסיעות:</strong> 200 ₪ לכיוון</li>
                 <li><strong>תנאי תשלום:</strong> שוטף + 30 לכל המאוחר</li>
               </Box>
-              <Typography variant="body1" paragraph style={{ marginTop: '2rem' }}>
+              <Typography variant="body1" paragraph style={{ marginTop: '2rem', fontFamily: 'Heebo, Arial, sans-serif' }}>
                 <strong>אנו ממליצים לשקול רכישת מנוי ברמת חברה ל-ChatGPT בעלות של 25$ למשתמש.</strong> זה יאפשר לכם להתחיל ליישם את הנלמד באופן מיידי ולראות תוצאות מהירות בתהליכי העבודה שלכם.
               </Typography>
             </Card>
 
             <Card ref={contactRef}>
               <animated.div style={titleAnimation}>
-                <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: '#62238C' }}>
+                <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: '#62238C', fontFamily: 'Heebo, Arial, sans-serif' }}>
                   אישור הצעת מחיר
                 </Typography>
               </animated.div>
               <form onSubmit={handleSubmit}>
-               <Grid container spacing={3}>
-  <Grid item xs={12}>
-    <Typography variant="subtitle1" align="right" gutterBottom>
-      שם מלא
-    </Typography>
-    <TextField
-      fullWidth
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-      required
-      InputProps={{
-        style: { direction: 'rtl', textAlign: 'right' }
-      }}
-    />
-  </Grid>
-  <Grid item xs={12}>
-    <Typography variant="subtitle1" align="right" gutterBottom>
-      תפקיד
-    </Typography>
-    <TextField
-      fullWidth
-      value={position}
-      onChange={(e) => setPosition(e.target.value)}
-      required
-      InputProps={{
-        style: { direction: 'rtl', textAlign: 'right' }
-      }}
-    />
-  </Grid>
-  <Grid item xs={12}>
-    <Typography variant="subtitle1" align="right" gutterBottom>
-      כתובת אימייל
-    </Typography>
-    <TextField
-      fullWidth
-      type="email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      required
-      InputProps={{
-        style: { direction: 'rtl', textAlign: 'right' }
-      }}
-    />
-  </Grid>
-</Grid>
+                <Grid container spacing={3}>
+                  <Grid item xs={12}>
+                    <Typography variant="subtitle1" align="right" gutterBottom style={{ fontFamily: 'Heebo, Arial, sans-serif' }}>
+                      שם מלא
+                    </Typography>
+                    <TextField
+                      fullWidth
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      InputProps={{
+                        style: { direction: 'rtl', textAlign: 'right', fontFamily: 'Heebo, Arial, sans-serif' }
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography variant="subtitle1" align="right" gutterBottom style={{ fontFamily: 'Heebo, Arial, sans-serif' }}>
+                      תפקיד
+                    </Typography>
+                    <TextField
+                      fullWidth
+                      value={position}
+                      onChange={(e) => setPosition(e.target.value)}
+                      required
+                      InputProps={{
+                        style: { direction: 'rtl', textAlign: 'right', fontFamily: 'Heebo, Arial, sans-serif' }
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography variant="subtitle1" align="right" gutterBottom style={{ fontFamily: 'Heebo, Arial, sans-serif' }}>
+                      כתובת אימייל
+                    </Typography>
+                    <TextField
+                      fullWidth
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      InputProps={{
+                        style: { direction: 'rtl', textAlign: 'right', fontFamily: 'Heebo, Arial, sans-serif' }
+                      }}
+                    />
+                  </Grid>
+                </Grid>
                 <Box mt={3} display="flex" justifyContent="center">
                   <StyledButton
                     type="submit"
@@ -438,7 +440,7 @@ const App = () => {
             </SocialLinks>
             
             <Box mt={4}>
-              <Typography variant="body1" style={{ textAlign: 'center', fontWeight: 'bold', fontSize: isMobile ? '0.9rem' : '1rem' }}>
+              <Typography variant="body1" style={{ textAlign: 'center', fontWeight: 'bold', fontSize: isMobile ? '0.9rem' : '1rem', fontFamily: 'Heebo, Arial, sans-serif' }}>
                 בברכה,<br />
                 עידו שגב<br />
                 מנכ"ל TriRoars<br />
@@ -448,7 +450,7 @@ const App = () => {
             </Box>
           </Content>
           <Footer>
-            <Typography variant="body2" style={{ fontSize: isMobile ? '1rem' : '1.2rem' }}>
+            <Typography variant="body2" style={{ fontSize: isMobile ? '1rem' : '1.2rem', fontFamily: 'Heebo, Arial, sans-serif' }}>
               נבנה באמצעות AI &copy; {new Date().getFullYear()} TriRoars
             </Typography>
           </Footer>
