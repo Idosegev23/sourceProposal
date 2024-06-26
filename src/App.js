@@ -18,6 +18,7 @@ const StyledContainer = styled(Container)`
   overflow: hidden;
   background: linear-gradient(to right, #f8f9fa, #e9ecef);
   color: #0D0D0D;
+  text-align: center;
 `;
 
 const Content = styled('div')`
@@ -27,7 +28,6 @@ const Content = styled('div')`
   max-width: 1200px;
   margin: 2rem auto;
   padding: 2rem;
-  text-align: center;
 
   @media (max-width: 600px) {
     padding: 1rem;
@@ -169,6 +169,7 @@ const MobileMenuButton = styled(IconButton)`
 const App = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [jobTitle, setJobTitle] = useState('');
   const [mobileMenuAnchor, setMobileMenuAnchor] = useState(null);
 
   const aboutRef = useRef(null);
@@ -195,7 +196,7 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.location.href = `mailto:triroars@gmail.com?subject=הצעת המחיר מאושרת&body=שלום עידו, אני מאשר את הצעת המחיר. שמי הוא ${name} והאימייל שלי הוא ${email}.`;
+    window.location.href = `mailto:triroars@gmail.com?subject=הצעת המחיר מאושרת&body=שלום עידו, אני מאשר את הצעת המחיר. שמי הוא ${name}, התפקיד שלי הוא ${jobTitle} והאימייל שלי הוא ${email}. פרטי ההצעה: מספר משתתפים: 10-15 איש, משך הסדנה: 5 שעות, עלות: 4,000 ₪ (לא כולל מע"מ), עלות נסיעות: 200 ₪ לכיוון, תנאי תשלום: שוטף + 30 לכל המאוחר.`;
   };
 
   const scrollTo = (ref) => {
@@ -223,7 +224,7 @@ const App = () => {
                   <StyledNavButton onClick={() => scrollTo(aboutRef)}>אודות</StyledNavButton>
                   <StyledNavButton onClick={() => scrollTo(servicesRef)}>שירותים</StyledNavButton>
                   <StyledNavButton onClick={() => scrollTo(pricingRef)}>תמחור</StyledNavButton>
-                  <StyledNavButton onClick={() => scrollTo(contactRef)}>צור קשר</StyledNavButton>
+                  <StyledNavButton onClick={() => scrollTo(contactRef)}>הכנס פרטים לאישור הצעת מחיר</StyledNavButton>
                 </NavButtons>
                 <MobileMenuButton
                   edge="start"
@@ -243,7 +244,9 @@ const App = () => {
               <MenuItem onClick={() => scrollTo(aboutRef)}>אודות</MenuItem>
               <MenuItem onClick={() => scrollTo(servicesRef)}>שירותים</MenuItem>
               <MenuItem onClick={() => scrollTo(pricingRef)}>תמחור</MenuItem>
-              <MenuItem onClick={() => scrollTo(contactRef)}>צור קשר</MenuItem>
+              <MenuItem onClick={() => scrollTo(contactRef)}>הכנס
+
+ פרטים לאישור הצעת מחיר</MenuItem>
             </Menu>
             
             <Card ref={aboutRef}>
@@ -310,7 +313,7 @@ const App = () => {
             <Card ref={contactRef}>
               <animated.div style={titleAnimation}>
                 <Typography variant="h4" gutterBottom style={{ color: '#62238C' }}>
-                  צור קשר
+                  הכנס פרטים לאישור הצעת מחיר
                 </Typography>
               </animated.div>
               <form onSubmit={handleSubmit}>
@@ -334,6 +337,18 @@ const App = () => {
                       label="כתובת אימייל"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      required
+                      InputProps={{
+                        style: { background: 'rgba(255, 255, 255, 0.5)' }
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      label="תפקיד"
+                      value={jobTitle}
+                      onChange={(e) => setJobTitle(e.target.value)}
                       required
                       InputProps={{
                         style: { background: 'rgba(255, 255, 255, 0.5)' }
