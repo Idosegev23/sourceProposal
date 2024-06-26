@@ -79,9 +79,9 @@ const Card = styled(motion.div)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  width: '100%',
-  maxWidth: '800px',
-  margin: '0 auto 1rem',
+  width: '80%',
+  maxWidth: '600px',
+  margin: '3 auto 3rem',
   [theme.breakpoints.down('sm')]: {
     padding: '1.5rem',
   },
