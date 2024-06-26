@@ -370,7 +370,12 @@ const App = () => {
         style: { direction: 'rtl', textAlign: 'right' }
       }}
       InputLabelProps={{
-        style: { direction: 'rtl', transformOrigin: 'top right' }
+        shrink: true,
+        style: { 
+          right: 0, 
+          left: 'auto', 
+          transformOrigin: 'top right'
+        }
       }}
     />
   </Grid>
@@ -385,7 +390,12 @@ const App = () => {
         style: { direction: 'rtl', textAlign: 'right' }
       }}
       InputLabelProps={{
-        style: { direction: 'rtl', transformOrigin: 'top right' }
+        shrink: true,
+        style: { 
+          right: 0, 
+          left: 'auto', 
+          transformOrigin: 'top right'
+        }
       }}
     />
   </Grid>
@@ -401,7 +411,12 @@ const App = () => {
         style: { direction: 'rtl', textAlign: 'right' }
       }}
       InputLabelProps={{
-        style: { direction: 'rtl', transformOrigin: 'top right' }
+        shrink: true,
+        style: { 
+          right: 0, 
+          left: 'auto', 
+          transformOrigin: 'top right'
+        }
       }}
     />
   </Grid>
