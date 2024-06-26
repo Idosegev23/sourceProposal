@@ -79,6 +79,9 @@ const Card = styled(motion.div)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  width: '100%',
+  maxWidth: '800px',
+  margin: '0 auto 3rem',
   [theme.breakpoints.down('sm')]: {
     padding: '1.5rem',
   },
@@ -182,6 +185,12 @@ const MobileMenuButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
+const StyledMenuItem = styled(MenuItem)`
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+`;
+
 const App = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -275,10 +284,10 @@ const App = () => {
                 horizontal: 'center',
               }}
             >
-              <MenuItem onClick={() => scrollTo(aboutRef)} style={{ textAlign: 'center', width: '100%' }}>אודות</MenuItem>
-              <MenuItem onClick={() => scrollTo(servicesRef)} style={{ textAlign: 'center', width: '100%' }}>שירותים</MenuItem>
-              <MenuItem onClick={() => scrollTo(pricingRef)} style={{ textAlign: 'center', width: '100%' }}>תמחור</MenuItem>
-              <MenuItem onClick={() => scrollTo(contactRef)} style={{ textAlign: 'center', width: '100%' }}>אישור הצעת מחיר</MenuItem>
+              <StyledMenuItem onClick={() => scrollTo(aboutRef)}>אודות</StyledMenuItem>
+              <StyledMenuItem onClick={() => scrollTo(servicesRef)}>שירותים</StyledMenuItem>
+              <StyledMenuItem onClick={() => scrollTo(pricingRef)}>תמחור</StyledMenuItem>
+              <StyledMenuItem onClick={() => scrollTo(contactRef)}>אישור הצעת מחיר</StyledMenuItem>
             </Menu>
 
             <Card ref={aboutRef}>
@@ -318,7 +327,7 @@ const App = () => {
               <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right' }}>
                 <li>סקירה מקיפה של טכנולוגיות AI מתקדמות וישומיהן בתעשיית הציוד הטקטי</li>
                 <li>עבודה מעשית עם ChatGPT - מעבר לשימושים בסיסיים</li>
-                <li>טכניקות מתקדמות לאימון והתאמה של מודלי AI לצרכים ספציפיים של Source Tactical Gear</li>
+<li>טכניקות מתקדמות לאימון והתאמה של מודלי AI לצרכים ספציפיים של Source Tactical Gear</li>
                 <li>יצירת GPT מותאם אישית לתהליכי העבודה הייחודיים שלכם</li>
                 <li>בניית תהליכי אוטומציה חכמים מבוססי AI לייעול תהליכי הייצור והלוגיסטיקה</li>
                 <li>אינטגרציה של טכנולוגיות AI בתהליכי העבודה הקיימים של החברה</li>
@@ -360,6 +369,9 @@ const App = () => {
                       InputProps={{
                         style: { direction: 'rtl', textAlign: 'right' }
                       }}
+                      InputLabelProps={{
+                        style: { direction: 'rtl', right: 0, left: 'auto' }
+                      }}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -371,6 +383,9 @@ const App = () => {
                       required
                       InputProps={{
                         style: { direction: 'rtl', textAlign: 'right' }
+                      }}
+                      InputLabelProps={{
+                        style: { direction: 'rtl', right: 0, left: 'auto' }
                       }}
                     />
                   </Grid>
@@ -384,6 +399,9 @@ const App = () => {
                       required
                       InputProps={{
                         style: { direction: 'rtl', textAlign: 'right' }
+                      }}
+                      InputLabelProps={{
+                        style: { direction: 'rtl', right: 0, left: 'auto' }
                       }}
                     />
                   </Grid>
