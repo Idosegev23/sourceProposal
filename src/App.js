@@ -3,12 +3,30 @@ import { motion } from 'framer-motion';
 import { useSpring, animated, config } from 'react-spring';
 import { Typography, Container, Box, Grid, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, TextField, useMediaQuery } from '@mui/material';
 import { Facebook, Instagram, MessageCircle, Menu as MenuIcon } from 'lucide-react';
-import { styled } from '@mui/material/styles';
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from './theme';
-import '@fontsource/heebo';
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { useInView } from 'react-intersection-observer';
+
+// Importing Heebo font
+import '@fontsource/heebo/400.css';
+import '@fontsource/heebo/700.css';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Heebo, Arial, sans-serif',
+  },
+  components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiInputBase-input': {
+            textAlign: 'right',
+          },
+        },
+      },
+    },
+  },
+});
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   minHeight: '100vh',
@@ -16,8 +34,8 @@ const StyledContainer = styled(Container)(({ theme }) => ({
   direction: 'rtl',
   position: 'relative',
   overflow: 'hidden',
-  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-  color: '#0D0D0D',
+  backgroundColor: 'white',
+  color: '#333',
   [theme.breakpoints.down('sm')]: {
     padding: theme.spacing(2),
   },
@@ -45,11 +63,11 @@ const Logo = styled('img')(({ theme }) => ({
 }));
 
 const Card = styled(motion.div)(({ theme }) => ({
-  background: 'rgba(255, 255, 255, 0.2)',
+  background: 'rgba(255, 255, 255, 0.9)',
   backdropFilter: 'blur(10px)',
   borderRadius: '16px',
   boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-  border: '1px solid rgba(255, 255, 255, 0.3)',
+  border: '1px solid rgba(0, 0, 0, 0.1)',
   padding: '3rem',
   marginBottom: '3rem',
   [theme.breakpoints.down('sm')]: {
@@ -68,7 +86,7 @@ const SocialLinks = styled('div')(({ theme }) => ({
 }));
 
 const SocialIcon = styled(motion.a)`
-  color: white;
+  color: #62238C;
   &:hover {
     color: #BF4B81;
   }
@@ -100,15 +118,15 @@ const StyledButton = styled(Button)(({ theme }) => ({
 const Footer = styled('footer')(({ theme }) => ({
   textAlign: 'center',
   padding: '1rem',
-  background: 'rgba(255, 255, 255, 0.1)',
+  background: 'rgba(255, 255, 255, 0.9)',
   backdropFilter: 'blur(10px)',
-  color: 'white',
+  color: '#333',
   position: 'relative',
   zIndex: 2,
 }));
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  background: 'rgba(255, 255, 255, 0.1)',
+  background: 'rgba(255, 255, 255, 0.9)',
   backdropFilter: 'blur(10px)',
   boxShadow: 'none',
   position: 'sticky',
@@ -123,7 +141,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   padding: '1rem 0',
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
 }));
 
@@ -137,12 +155,12 @@ const NavButtons = styled('div')(({ theme }) => ({
 }));
 
 const StyledNavButton = styled(Button)`
-  color: white;
+  color: #62238C;
   font-size: 1.4rem;
   margin: 0 1rem;
   font-weight: 600;
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(98, 35, 140, 0.1);
   }
 `;
 
@@ -150,13 +168,14 @@ const MobileMenuButton = styled(IconButton)(({ theme }) => ({
   display: 'none',
   [theme.breakpoints.down('sm')]: {
     display: 'block',
-    color: 'white',
+    color: '#62238C',
   },
 }));
 
 const App = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [position, setPosition] = useState('');
   const [mobileMenuAnchor, setMobileMenuAnchor] = useState(null);
 
   const aboutRef = useRef(null);
@@ -185,7 +204,15 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.location.href = `mailto:triroars@gmail.com?subject=הצעת המחיר מאושרת&body=שלום עידו, אני מאשר את הצעת המחיר. שמי הוא ${name} והאימייל שלי הוא ${email}.`;
+    const summary = `
+      הצעת מחיר לסדנת AI מתקדמת:
+      - מחיר הסדנה: 4,000 ₪ (לא כולל מע"מ)
+      - עלות נסיעות: 200 ₪ לכיוון
+      - תנאי תשלום: שוטף + 30 לכל המאוחר
+      - משך הסדנה: 5 שעות
+      - מספר משתתפים: 10-15 איש
+    `;
+    window.location.href = `mailto:triroars@gmail.com?subject=אישור הצעת המחיר&body=שלום עידו,%0D%0A%0D%0Aאני מאשר את הצעת המחיר.%0D%0A%0D%0Aשמי: ${name}%0D%0Aתפקיד: ${position}%0D%0Aאימייל: ${email}%0D%0A%0D%0Aסיכום ההצעה:%0D%0A${encodeURIComponent(summary)}`;
   };
 
   const scrollTo = (ref) => {
@@ -213,7 +240,7 @@ const App = () => {
                   <StyledNavButton onClick={() => scrollTo(aboutRef)}>אודות</StyledNavButton>
                   <StyledNavButton onClick={() => scrollTo(servicesRef)}>שירותים</StyledNavButton>
                   <StyledNavButton onClick={() => scrollTo(pricingRef)}>תמחור</StyledNavButton>
-                  <StyledNavButton onClick={() => scrollTo(contactRef)}>צור קשר</StyledNavButton>
+                  <StyledNavButton onClick={() => scrollTo(contactRef)}>אישור הצעת מחיר</StyledNavButton>
                 </NavButtons>
                 <MobileMenuButton
                   edge="start"
@@ -229,48 +256,56 @@ const App = () => {
               anchorEl={mobileMenuAnchor}
               open={Boolean(mobileMenuAnchor)}
               onClose={handleMobileMenuClose}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+              }}
             >
               <MenuItem onClick={() => scrollTo(aboutRef)}>אודות</MenuItem>
               <MenuItem onClick={() => scrollTo(servicesRef)}>שירותים</MenuItem>
               <MenuItem onClick={() => scrollTo(pricingRef)}>תמחור</MenuItem>
-              <MenuItem onClick={() => scrollTo(contactRef)}>צור קשר</MenuItem>
+              <MenuItem onClick={() => scrollTo(contactRef)}>אישור הצעת מחיר</MenuItem>
             </Menu>
             
             <Card ref={aboutRef}>
               <animated.div style={titleAnimation}>
-                <Typography variant={isMobile ? "h4" : "h3"} gutterBottom style={{ color: 'white' }}>
+                <Typography variant={isMobile ? "h4" : "h3"} gutterBottom style={{ color: '#62238C' }}>
                   אודות TriRoars
                 </Typography>
               </animated.div>
-              <Typography variant="body1" paragraph style={{ color: 'white' }}>
+              <Typography variant="body1" paragraph>
                 <strong>שלום, שמי עידו שגב, מנכ"ל חברת TriRoars.</strong> אנו מתמחים בהדרכה ובהטמעת פתרונות בינה מלאכותית ואוטומציה עסקית המותאמים אישית לצרכי הלקוחות שלנו.
               </Typography>
-              <Typography variant="body1" paragraph style={{ color: 'white' }}>
+              <Typography variant="body1" paragraph>
                 ב-TriRoars, אנו מאמינים בכוח של טכנולוגיה מתקדמת לשפר ולייעל תהליכים עסקיים. <strong>אנו מחויבים לספק פתרונות חדשניים שיקדמו את העסק שלכם לעבר העתיד.</strong>
               </Typography>
             </Card>
 
             <Card ref={servicesRef}>
               <animated.div style={titleAnimation}>
-                <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: 'white' }}>
+                <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: '#62238C' }}>
                   הצעת מחיר לסדנת AI מתקדמת
                 </Typography>
               </animated.div>
-              <Typography variant="body1" paragraph style={{ color: 'white' }}>
+              <Typography variant="body1" paragraph>
                 <strong>שלום איתי,</strong>
               </Typography>
-              <Typography variant="body1" paragraph style={{ color: 'white' }}>
+              <Typography variant="body1" paragraph>
                 אנו שמחים להציג בפניך הצעת מחיר לסדנת AI חדשנית ומתקדמת עבור מחלקת הפיתוח בחברת Source Tactical Gear. <strong>סדנה זו תפתח בפניכם עולם של אפשרויות טכנולוגיות חדשות ותעצים את יכולות הצוות שלכם.</strong>
               </Typography>
-              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', color: 'white' }}>
+              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem' }}>
                 <li><strong>מספר משתתפים:</strong> 10-15 איש</li>
                 <li><strong>משך הסדנה:</strong> סדנה מעשית אינטנסיבית בת 5 שעות</li>
                 <li><strong>דרישות:</strong> מחשבים ניידים עם חיבור לאינטרנט</li>
               </Box>
-              <Typography variant={isMobile ? "h6" : "h5"} gutterBottom style={{ color: 'white', marginTop: '2rem' }}>
+              <Typography variant={isMobile ? "h6" : "h5"} gutterBottom style={{ color: '#62238C', marginTop: '2rem' }}>
                 נושאי הסדנה
               </Typography>
-              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', color: 'white' }}>
+              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem' }}>
                 <li>סקירה מקיפה של טכנולוגיות AI מתקדמות וישומיהן בתעשיית הציוד הטקטי</li>
                 <li>עבודה מעשית עם ChatGPT - מעבר לשימושים בסיסיים</li>
                 <li>טכניקות מתקדמות לאימון והתאמה של מודלי AI לצרכים ספציפיים של Source Tactical Gear</li>
@@ -283,29 +318,29 @@ const App = () => {
 
             <Card ref={pricingRef}>
               <animated.div style={titleAnimation}>
-                <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: 'white' }}>
+                <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: '#62238C' }}>
                   תמחור
                 </Typography>
               </animated.div>
-              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', color: 'white' }}>
+              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem' }}>
                 <li><strong>מחיר הסדנה:</strong> 4,000 ₪ (לא כולל מע"מ)</li>
                 <li><strong>עלות נסיעות:</strong> 200 ₪ לכיוון</li>
                 <li><strong>תנאי תשלום:</strong> שוטף + 30 לכל המאוחר</li>
               </Box>
-              <Typography variant="body1" paragraph style={{ marginTop: '2rem', color: 'white' }}>
+              <Typography variant="body1" paragraph style={{ marginTop: '2rem' }}>
                 <strong>אנו ממליצים לשקול רכישת מנוי ברמת חברה ל-ChatGPT בעלות של 25$ למשתמש.</strong> זה יאפשר לכם להתחיל ליישם את הנלמד באופן מיידי ולראות תוצאות מהירות בתהליכי העבודה שלכם.
               </Typography>
             </Card>
 
             <Card ref={contactRef}>
               <animated.div style={titleAnimation}>
-                <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: 'white' }}>
-                  צור קשר
+                <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: '#62238C' }}>
+                  אישור הצעת מחיר
                 </Typography>
               </animated.div>
               <form onSubmit={handleSubmit}>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12}>
                     <TextField
                       fullWidth
                       label="שם מלא"
@@ -313,11 +348,23 @@ const App = () => {
                       onChange={(e) => setName(e.target.value)}
                       required
                       InputProps={{
-                        style: { background: 'rgba(255, 255, 255, 0.5)' }
+                        style: { direction: 'rtl' }
                       }}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      label="תפקיד"
+                      value={position}
+                      onChange={(e) => setPosition(e.target.value)}
+                      required
+                      InputProps={{
+                        style: { direction: 'rtl' }
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
                     <TextField
                       fullWidth
                       type="email"
@@ -326,7 +373,7 @@ const App = () => {
                       onChange={(e) => setEmail(e.target.value)}
                       required
                       InputProps={{
-                        style: { background: 'rgba(255, 255, 255, 0.5)' }
+                        style: { direction: 'rtl' }
                       }}
                     />
                   </Grid>
@@ -378,7 +425,7 @@ const App = () => {
             </SocialLinks>
             
             <Box mt={4}>
-              <Typography variant="body1" style={{ textAlign: 'center', fontWeight: 'bold', color: 'white', fontSize: isMobile ? '0.9rem' : '1rem' }}>
+              <Typography variant="body1" style={{ textAlign: 'center', fontWeight: 'bold', fontSize: isMobile ? '0.9rem' : '1rem' }}>
                 בברכה,<br />
                 עידו שגב<br />
                 מנכ"ל TriRoars<br />
