@@ -358,70 +358,51 @@ const App = () => {
                 </Typography>
               </animated.div>
               <form onSubmit={handleSubmit}>
-                <Grid container spacing={3}>
+               <Grid container spacing={3}>
   <Grid item xs={12}>
+    <Typography variant="subtitle1" align="right" gutterBottom>
+      שם מלא
+    </Typography>
     <TextField
       fullWidth
-      label="שם מלא"
       value={name}
       onChange={(e) => setName(e.target.value)}
       required
       InputProps={{
         style: { direction: 'rtl', textAlign: 'right' }
       }}
-      InputLabelProps={{
-        shrink: true,
-        style: { 
-          right: 0, 
-          left: 'auto', 
-          transformOrigin: 'top right'
-        }
-      }}
     />
   </Grid>
   <Grid item xs={12}>
+    <Typography variant="subtitle1" align="right" gutterBottom>
+      תפקיד
+    </Typography>
     <TextField
       fullWidth
-      label="תפקיד"
       value={position}
       onChange={(e) => setPosition(e.target.value)}
       required
       InputProps={{
         style: { direction: 'rtl', textAlign: 'right' }
       }}
-      InputLabelProps={{
-        shrink: true,
-        style: { 
-          right: 0, 
-          left: 'auto', 
-          transformOrigin: 'top right'
-        }
-      }}
     />
   </Grid>
   <Grid item xs={12}>
+    <Typography variant="subtitle1" align="right" gutterBottom>
+      כתובת אימייל
+    </Typography>
     <TextField
       fullWidth
       type="email"
-      label="כתובת אימייל"
       value={email}
       onChange={(e) => setEmail(e.target.value)}
       required
       InputProps={{
         style: { direction: 'rtl', textAlign: 'right' }
       }}
-      InputLabelProps={{
-        shrink: true,
-        style: { 
-          right: 0, 
-          left: 'auto', 
-          transformOrigin: 'top right'
-        }
-      }}
     />
   </Grid>
 </Grid>
-
                 <Box mt={3} display="flex" justifyContent="center">
                   <StyledButton
                     type="submit"
