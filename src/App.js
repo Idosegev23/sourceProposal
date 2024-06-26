@@ -7,7 +7,6 @@ import { styled } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './theme';
 import '@fontsource/heebo';
-import '@fontsource/dancing-script';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { useInView } from 'react-intersection-observer';
 
@@ -28,6 +27,7 @@ const Content = styled('div')`
   max-width: 1200px;
   margin: 2rem auto;
   padding: 2rem;
+  text-align: center;
 
   @media (max-width: 600px) {
     padding: 1rem;
@@ -36,12 +36,12 @@ const Content = styled('div')`
 `;
 
 const Logo = styled('img')`
-  width: 200px;
+  width: 250px;
   margin: 0 auto 2rem;
   display: block;
 
   @media (max-width: 600px) {
-    width: 150px;
+    width: 200px;
   }
 `;
 
@@ -53,6 +53,7 @@ const Card = styled(motion.div)`
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 3rem;
   margin-bottom: 3rem;
+  text-align: right;
 
   @media (max-width: 600px) {
     padding: 1.5rem;
@@ -165,18 +166,6 @@ const MobileMenuButton = styled(IconButton)`
   }
 `;
 
-const PageTitle = styled(Typography)`
-  font-family: 'Dancing Script', cursive;
-  color: #62238C;
-  font-size: 3.5rem;
-  text-align: center;
-  margin-bottom: 1rem;
-
-  @media (max-width: 600px) {
-    font-size: 2.5rem;
-  }
-`;
-
 const App = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -229,10 +218,7 @@ const App = () => {
           <Content>
             <StyledAppBar>
               <StyledToolbar>
-                <Logo src="/NewLogo_BLANK.png" alt="TriRoars Logo" />
-                <PageTitle variant="h1">
-                  TriRoars
-                </PageTitle>
+                <Logo src="/assets/NewLogo_BLANK.png" alt="TriRoars Logo" />
                 <NavButtons>
                   <StyledNavButton onClick={() => scrollTo(aboutRef)}>אודות</StyledNavButton>
                   <StyledNavButton onClick={() => scrollTo(servicesRef)}>שירותים</StyledNavButton>
