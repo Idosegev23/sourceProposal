@@ -1,0 +1,47 @@
+{
+  "name": "triroars-landing-page",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fontsource/dancing-script": "^5.0.18",
+    "@fontsource/heebo": "^4.5.15",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.1",
+    "cra-template": "1.2.0",
+    "framer-motion": "^10.18.0",
+    "lucide-react": "^0.397.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-intersection-observer": "^9.10.3",
+    "react-scripts": "5.0.1",
+    "react-scroll-parallax": "^3.4.5",
+    "react-spring": "^9.7.3",
+    "react-tilt": "^1.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
