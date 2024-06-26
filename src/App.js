@@ -290,50 +290,40 @@ const App = () => {
               <StyledMenuItem onClick={() => scrollTo(contactRef)}>אישור הצעת מחיר</StyledMenuItem>
             </Menu>
 
-            <Card ref={aboutRef}>
-              <animated.div style={titleAnimation}>
-                <Typography variant={isMobile ? "h4" : "h3"} gutterBottom style={{ color: '#62238C' }}>
-                  אודות TriRoars
-                </Typography>
-              </animated.div>
-              <Typography variant="body1" paragraph>
-                <strong>שלום, שמי עידו שגב, מנכ"ל חברת TriRoars.</strong> אנו מתמחים בהדרכה ובהטמעת פתרונות בינה מלאכותית ואוטומציה עסקית המותאמים אישית לצרכי הלקוחות שלנו.
-              </Typography>
-              <Typography variant="body1" paragraph>
-                ב-TriRoars, אנו מאמינים בכוח של טכנולוגיה מתקדמת לשפר ולייעל תהליכים עסקיים. <strong>אנו מחויבים לספק פתרונות חדשניים שיקדמו את העסק שלכם לעבר העתיד.</strong>
-              </Typography>
-            </Card>
+            // ... (קוד קודם נשאר ללא שינוי)
 
-            <Card ref={servicesRef}>
-              <animated.div style={titleAnimation}>
-                <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: '#62238C' }}>
-                  הצעת מחיר לסדנת AI מתקדמת
-                </Typography>
-              </animated.div>
-              <Typography variant="body1" paragraph>
-                <strong>שלום איתי,</strong>
-              </Typography>
-              <Typography variant="body1" paragraph>
-                אנו שמחים להציג בפניך הצעת מחיר לסדנת AI חדשנית ומתקדמת עבור מחלקת הפיתוח בחברת Source Tactical Gear. <strong>סדנה זו תפתח בפניכם עולם של אפשרויות טכנולוגיות חדשות ותעצים את יכולות הצוות שלכם.</strong>
-              </Typography>
-              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right' }}>
-                <li><strong>מספר משתתפים:</strong> 10-15 איש</li>
-                <li><strong>משך הסדנה:</strong> סדנה מעשית אינטנסיבית בת 5 שעות</li>
-                <li><strong>דרישות:</strong> מחשבים ניידים עם חיבור לאינטרנט</li>
-              </Box>
-              <Typography variant={isMobile ? "h6" : "h5"} gutterBottom style={{ color: '#62238C', marginTop: '2rem' }}>
-                נושאי הסדנה
-              </Typography>
-              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right' }}>
-                <li>סקירה מקיפה של טכנולוגיות AI מתקדמות וישומיהן בתעשיית הציוד הטקטי</li>
-                <li>עבודה מעשית עם ChatGPT - מעבר לשימושים בסיסיים</li>
-<li>טכניקות מתקדמות לאימון והתאמה של מודלי AI לצרכים ספציפיים של Source Tactical Gear</li>
-                <li>יצירת GPT מותאם אישית לתהליכי העבודה הייחודיים שלכם</li>
-                <li>בניית תהליכי אוטומציה חכמים מבוססי AI לייעול תהליכי הייצור והלוגיסטיקה</li>
-                <li>אינטגרציה של טכנולוגיות AI בתהליכי העבודה הקיימים של החברה</li>
-                <li>סקירת מגמות עתידיות ב-AI וכיצד הן עשויות להשפיע על תעשיית הציוד הטקטי</li>
-              </Box>
-            </Card>
+<Card ref={servicesRef}>
+  <animated.div style={titleAnimation}>
+    <Typography variant={isMobile ? "h5" : "h4"} gutterBottom style={{ color: '#62238C', fontFamily: 'Heebo, Arial, sans-serif' }}>
+      הצעת מחיר לסדנת AI מתקדמת
+    </Typography>
+  </animated.div>
+  <Typography variant="body1" paragraph style={{ fontFamily: 'Heebo, Arial, sans-serif' }}>
+    <strong>שלום איתי,</strong>
+  </Typography>
+  <Typography variant="body1" paragraph style={{ fontFamily: 'Heebo, Arial, sans-serif' }}>
+    אנו שמחים להציג בפניך הצעת מחיר לסדנת AI חדשנית ומתקדמת עבור מחלקת הפיתוח בחברת Source Tactical Gear. <strong>סדנה זו תפתח בפניכם עולם של אפשרויות טכנולוגיות חדשות ותעצים את יכולות הצוות שלכם.</strong>
+  </Typography>
+  <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right', fontFamily: 'Heebo, Arial, sans-serif' }}>
+    <li><strong>מספר משתתפים:</strong> 10-15 איש</li>
+    <li><strong>משך הסדנה:</strong> סדנה מעשית אינטנסיבית בת 5 שעות</li>
+    <li><strong>דרישות:</strong> מחשבים ניידים עם חיבור לאינטרנט</li>
+  </Box>
+  <Typography variant={isMobile ? "h6" : "h5"} gutterBottom style={{ color: '#62238C', marginTop: '2rem', fontFamily: 'Heebo, Arial, sans-serif' }}>
+    נושאי הסדנה
+  </Typography>
+  <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right', fontFamily: 'Heebo, Arial, sans-serif' }}>
+    <li>סקירה מקיפה של טכנולוגיות AI מתקדמות וישומיהן בתעשיית הציוד הטקטי</li>
+    <li>עבודה מעשית עם ChatGPT - מעבר לשימושים בסיסיים</li>
+    <li>טכניקות מתקדמות לאימון והתאמה של מודלי AI לצרכים ספציפיים של Source Tactical Gear</li>
+    <li>יצירת GPT מותאם אישית לתהליכי העבודה הייחודיים שלכם</li>
+    <li>בניית תהליכי אוטומציה חכמים מבוססי AI לייעול תהליכי הייצור והלוגיסטיקה</li>
+    <li>אינטגרציה של טכנולוגיות AI בתהליכי העבודה הקיימים של החברה</li>
+    <li>סקירת מגמות עתידיות ב-AI וכיצד הן עשויות להשפיע על תעשיית הציוד הטקטי</li>
+  </Box>
+</Card>
+
+// ... (קוד הבא נשאר ללא שינוי)
 
             <Card ref={pricingRef}>
               <animated.div style={titleAnimation}>
