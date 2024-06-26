@@ -28,12 +28,21 @@ const Content = styled('div')`
   max-width: 1200px;
   margin: 2rem auto;
   padding: 2rem;
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+    margin: 1rem;
+  }
 `;
 
 const Logo = styled('img')`
   width: 200px;
   margin: 0 auto 2rem;
   display: block;
+
+  @media (max-width: 600px) {
+    width: 150px;
+  }
 `;
 
 const Card = styled(motion.div)`
@@ -44,6 +53,11 @@ const Card = styled(motion.div)`
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 3rem;
   margin-bottom: 3rem;
+
+  @media (max-width: 600px) {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const SocialLinks = styled('div')`
@@ -78,6 +92,11 @@ const StyledButton = styled(Button)`
     background: linear-gradient(45deg, #BF4B81, #62238C);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   }
+
+  @media (max-width: 600px) {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
 `;
 
 const Footer = styled('footer')`
@@ -104,12 +123,21 @@ const StyledToolbar = styled(Toolbar)`
   flex-direction: column;
   align-items: center;
   padding: 1rem 0;
+
+  @media (max-width: 600px) {
+    padding: 0.5rem 0;
+  }
 `;
 
 const NavButtons = styled('div')`
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    margin-top: 0.5rem;
+  }
 `;
 
 const StyledNavButton = styled(Button)`
@@ -120,6 +148,10 @@ const StyledNavButton = styled(Button)`
   &:hover {
     background-color: rgba(98, 35, 140, 0.1);
   }
+
+  @media (max-width: 600px) {
+    margin: 0.5rem 0;
+  }
 `;
 
 const MobileMenuButton = styled(IconButton)`
@@ -127,6 +159,7 @@ const MobileMenuButton = styled(IconButton)`
   left: 1rem;
   top: 1rem;
   display: none;
+
   @media (max-width: 600px) {
     display: block;
   }
@@ -138,6 +171,10 @@ const PageTitle = styled(Typography)`
   font-size: 3.5rem;
   text-align: center;
   margin-bottom: 1rem;
+
+  @media (max-width: 600px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const App = () => {
