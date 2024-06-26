@@ -48,6 +48,7 @@ const Content = styled('div')(({ theme }) => ({
   maxWidth: '1200px',
   margin: '2rem auto',
   padding: '2rem',
+  textAlign: 'center',
   [theme.breakpoints.down('sm')]: {
     padding: '1rem',
   },
@@ -140,7 +141,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   alignItems: 'center',
   padding: '1rem 0',
   [theme.breakpoints.down('sm')]: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
   },
 }));
@@ -169,6 +170,7 @@ const MobileMenuButton = styled(IconButton)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     display: 'block',
     color: '#62238C',
+    marginTop: '1rem',
   },
 }));
 
@@ -236,12 +238,6 @@ const App = () => {
             <StyledAppBar>
               <StyledToolbar>
                 <Logo src="/NewLogo_BLANK.png" alt="TriRoars Logo" />
-                <NavButtons>
-                  <StyledNavButton onClick={() => scrollTo(aboutRef)}>אודות</StyledNavButton>
-                  <StyledNavButton onClick={() => scrollTo(servicesRef)}>שירותים</StyledNavButton>
-                  <StyledNavButton onClick={() => scrollTo(pricingRef)}>תמחור</StyledNavButton>
-                  <StyledNavButton onClick={() => scrollTo(contactRef)}>אישור הצעת מחיר</StyledNavButton>
-                </NavButtons>
                 <MobileMenuButton
                   edge="start"
                   color="inherit"
@@ -250,6 +246,12 @@ const App = () => {
                 >
                   <MenuIcon />
                 </MobileMenuButton>
+                <NavButtons>
+                  <StyledNavButton onClick={() => scrollTo(aboutRef)}>אודות</StyledNavButton>
+                  <StyledNavButton onClick={() => scrollTo(servicesRef)}>שירותים</StyledNavButton>
+                  <StyledNavButton onClick={() => scrollTo(pricingRef)}>תמחור</StyledNavButton>
+                  <StyledNavButton onClick={() => scrollTo(contactRef)}>אישור הצעת מחיר</StyledNavButton>
+                </NavButtons>
               </StyledToolbar>
             </StyledAppBar>
             <Menu
@@ -270,7 +272,7 @@ const App = () => {
               <MenuItem onClick={() => scrollTo(pricingRef)}>תמחור</MenuItem>
               <MenuItem onClick={() => scrollTo(contactRef)}>אישור הצעת מחיר</MenuItem>
             </Menu>
-            
+
             <Card ref={aboutRef}>
               <animated.div style={titleAnimation}>
                 <Typography variant={isMobile ? "h4" : "h3"} gutterBottom style={{ color: '#62238C' }}>
@@ -297,7 +299,7 @@ const App = () => {
               <Typography variant="body1" paragraph>
                 אנו שמחים להציג בפניך הצעת מחיר לסדנת AI חדשנית ומתקדמת עבור מחלקת הפיתוח בחברת Source Tactical Gear. <strong>סדנה זו תפתח בפניכם עולם של אפשרויות טכנולוגיות חדשות ותעצים את יכולות הצוות שלכם.</strong>
               </Typography>
-              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem' }}>
+              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right' }}>
                 <li><strong>מספר משתתפים:</strong> 10-15 איש</li>
                 <li><strong>משך הסדנה:</strong> סדנה מעשית אינטנסיבית בת 5 שעות</li>
                 <li><strong>דרישות:</strong> מחשבים ניידים עם חיבור לאינטרנט</li>
@@ -305,7 +307,7 @@ const App = () => {
               <Typography variant={isMobile ? "h6" : "h5"} gutterBottom style={{ color: '#62238C', marginTop: '2rem' }}>
                 נושאי הסדנה
               </Typography>
-              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem' }}>
+              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right' }}>
                 <li>סקירה מקיפה של טכנולוגיות AI מתקדמות וישומיהן בתעשיית הציוד הטקטי</li>
                 <li>עבודה מעשית עם ChatGPT - מעבר לשימושים בסיסיים</li>
                 <li>טכניקות מתקדמות לאימון והתאמה של מודלי AI לצרכים ספציפיים של Source Tactical Gear</li>
@@ -322,7 +324,7 @@ const App = () => {
                   תמחור
                 </Typography>
               </animated.div>
-              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem' }}>
+              <Box component="ul" style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', textAlign: 'right' }}>
                 <li><strong>מחיר הסדנה:</strong> 4,000 ₪ (לא כולל מע"מ)</li>
                 <li><strong>עלות נסיעות:</strong> 200 ₪ לכיוון</li>
                 <li><strong>תנאי תשלום:</strong> שוטף + 30 לכל המאוחר</li>
@@ -378,7 +380,7 @@ const App = () => {
                     />
                   </Grid>
                 </Grid>
-                <Box mt={3}>
+                <Box mt={3} display="flex" justifyContent="center">
                   <StyledButton
                     type="submit"
                     component={motion.button}
