@@ -359,53 +359,54 @@ const App = () => {
               </animated.div>
               <form onSubmit={handleSubmit}>
                 <Grid container spacing={3}>
-                  <Grid item xs={12}>
-                    <TextField
-                      fullWidth
-                      label="שם מלא"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      required
-                      InputProps={{
-                        style: { direction: 'rtl', textAlign: 'right' }
-                      }}
-                      InputLabelProps={{
-                        style: { direction: 'rtl', right: 0, left: 'auto' }
-                      }}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      fullWidth
-                      label="תפקיד"
-                      value={position}
-                      onChange={(e) => setPosition(e.target.value)}
-                      required
-                      InputProps={{
-                        style: { direction: 'rtl', textAlign: 'right' }
-                      }}
-                      InputLabelProps={{
-                        style: { direction: 'rtl', right: 0, left: 'auto' }
-                      }}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      fullWidth
-                      type="email"
-                      label="כתובת אימייל"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      InputProps={{
-                        style: { direction: 'rtl', textAlign: 'right' }
-                      }}
-                      InputLabelProps={{
-                        style: { direction: 'rtl', right: 0, left: 'auto' }
-                      }}
-                    />
-                  </Grid>
-                </Grid>
+  <Grid item xs={12}>
+    <TextField
+      fullWidth
+      label="שם מלא"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      required
+      InputProps={{
+        style: { direction: 'rtl', textAlign: 'right' }
+      }}
+      InputLabelProps={{
+        style: { direction: 'rtl', transformOrigin: 'top right' }
+      }}
+    />
+  </Grid>
+  <Grid item xs={12}>
+    <TextField
+      fullWidth
+      label="תפקיד"
+      value={position}
+      onChange={(e) => setPosition(e.target.value)}
+      required
+      InputProps={{
+        style: { direction: 'rtl', textAlign: 'right' }
+      }}
+      InputLabelProps={{
+        style: { direction: 'rtl', transformOrigin: 'top right' }
+      }}
+    />
+  </Grid>
+  <Grid item xs={12}>
+    <TextField
+      fullWidth
+      type="email"
+      label="כתובת אימייל"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      required
+      InputProps={{
+        style: { direction: 'rtl', textAlign: 'right' }
+      }}
+      InputLabelProps={{
+        style: { direction: 'rtl', transformOrigin: 'top right' }
+      }}
+    />
+  </Grid>
+</Grid>
+
                 <Box mt={3} display="flex" justifyContent="center">
                   <StyledButton
                     type="submit"
